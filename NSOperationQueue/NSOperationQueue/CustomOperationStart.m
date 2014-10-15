@@ -10,15 +10,27 @@
 
 @implementation CustomOperationStart
 
-- (void)main
+@synthesize executing = _executing;
+@synthesize finished = _finished;
+
+- (void)start
 {
-    @autoreleasepool
+    _executing = YES;
+    _finished = NO;
+    // start your work, which calls finished once it's done ...
+    for (int i = 0 ; i < self.opNum * 10 ; i++)
     {
-        for (int i = 0 ; i < 10000 ; i++)
-        {
-            NSLog(@"Operation:%d  i:%d    %f",self.opNum,i, sqrt(i));
-        }
+        // is this operation cancelled?
+        if (self.isCancelled)
+            break;
+        NSLog(@"Operation:%d  i:%d    %f",self.opNum,i, sqrt(i));
     }
+}
+
+- (void)finished
+{
+    _executing = NO;
+    _finished = YES;
 }
 
 @end

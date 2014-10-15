@@ -10,20 +10,16 @@
 
 @implementation CustomOperationMain
 
-- (void) start
+- (void) main
 {
-    @autoreleasepool
-    {
-        for (int i = 0 ; i < 10000 ; i++)
+        for (int i = 0 ; i < self.opNum * 10 ; i++)
         {
+            // is this operation cancelled?
+            if (self.isCancelled)
+                break;
             NSLog(@"Operation:%d  i:%d    %f",self.opNum,i, sqrt(i));
         }
-    }
 }
 
-- (BOOL)isConcurrent
-{
-    return NO;
-}
 
 @end
