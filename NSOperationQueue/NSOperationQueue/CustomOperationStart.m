@@ -25,6 +25,8 @@
             break;
         NSLog(@"Operation:%d  i:%d    %f",self.opNum,i, sqrt(i));
     }
+    
+    [self finished];
 }
 
 - (void)finished

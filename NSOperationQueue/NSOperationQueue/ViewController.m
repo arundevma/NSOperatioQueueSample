@@ -31,7 +31,7 @@
 //    [self mainOverrideExample];
     
     //Example for start Override
-//    [self startOverrideExample];
+    [self startOverrideExample];
     
     
 //    //Example for priority
@@ -41,7 +41,7 @@
 //    [self addBlockExample];
     
     //Example dependency
-    [self addDependencyExample];
+//    [self addDependencyExample];
 
 
 
