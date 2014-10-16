@@ -17,6 +17,7 @@
 {
     _executing = YES;
     _finished = NO;
+    NSLog(@"Entered start of OP: %d  ",self.opNum);
     // start your work, which calls finished once it's done ...
     for (int i = 0 ; i < self.opNum * 10 ; i++)
     {
