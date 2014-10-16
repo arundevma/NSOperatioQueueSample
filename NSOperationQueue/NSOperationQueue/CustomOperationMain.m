@@ -12,7 +12,9 @@
 
 - (void) main
 {
-        for (int i = 0 ; i < self.opNum * 10 ; i++)
+        NSLog(@"Entering Operation:%d  ",self.opNum);
+    
+        for (int i = 0 ; i < self.opNum * 10 +2 ; i++)
         {
             // is this operation cancelled?
             if (self.isCancelled)

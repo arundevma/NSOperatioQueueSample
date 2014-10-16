@@ -31,7 +31,7 @@
 //    [self mainOverrideExample];
     
     //Example for start Override
-    [self startOverrideExample];
+//    [self startOverrideExample];
     
     
 //    //Example for priority
@@ -41,7 +41,7 @@
 //    [self addBlockExample];
     
     //Example dependency
-//    [self addDependencyExample];
+    [self addDependencyExample];
 
 
 
@@ -85,6 +85,9 @@
 {
     int priority = -8L;   //very  low priority enumeration others are -4,0,4,8
 
+    //Initially setting queue to suspended state. Otherwise first task will always execute as there are no task in the queue
+    [self.operationQueue setSuspended:YES];
+
     for (int i = 0; i<5; i++)
     {
         
@@ -99,7 +102,8 @@
         [self.operationQueue addOperation:op];
         
     }
-    
+    [self.operationQueue setSuspended:NO];
+
 }
 
 - (void)addBlockExample
@@ -116,6 +120,9 @@
 {
     int priority = -8L;   //very low priority enumeration others are -4,0,4,8
     NSMutableArray *array = [NSMutableArray array];
+    
+    //Initially setting queue to suspended state. Otherwise first task will always execute as there are no task in the queue
+    [self.operationQueue setSuspended:YES];
     
     for (int i = 0; i<5; i++)
     {
@@ -145,6 +152,7 @@
 
     }];
     
+    [self.operationQueue setSuspended:NO];
 
     
 }
