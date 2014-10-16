@@ -25,7 +25,7 @@
 {
     [super viewDidLoad];
     self.operationQueue = [[NSOperationQueue alloc]init];
-    self.operationQueue.maxConcurrentOperationCount = 1;
+    self.operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
 
 //    //Example for main Override
     [self mainOverrideExample];
