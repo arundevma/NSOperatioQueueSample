@@ -28,7 +28,7 @@
     self.operationQueue.maxConcurrentOperationCount = 1;
 
 //    //Example for main Override
-//    [self mainOverrideExample];
+    [self mainOverrideExample];
     
     //Example for start Override
 //    [self startOverrideExample];
@@ -41,7 +41,10 @@
 //    [self addBlockExample];
     
     //Example dependency
-    [self addDependencyExample];
+//    [self addDependencyExample];
+    
+    //Example NSOPerationBlock
+//    [self addBlockOperationExample];
 
 
 
@@ -62,6 +65,10 @@
 
     }
     
+    NSLog(@"started waiting for Operations to finish.......");
+    [self.operationQueue waitUntilAllOperationsAreFinished];
+    NSLog(@"Finished waiting for Operations.........");
+
 }
 
 - (void)startOverrideExample
@@ -155,6 +162,26 @@
     [self.operationQueue setSuspended:NO];
 
     
+}
+
+
+- (void)addBlockOperationExample
+{
+    NSBlockOperation *blockOperation = [[NSBlockOperation alloc]init];
+    
+    
+    for (int i = 0; i<5; i++)
+    {
+        [blockOperation addExecutionBlock:^{
+            for (int j=0; j<10; j++)
+            {
+                NSLog(@"BlockOPeration: %d  iteration: %d",i,j);
+            }
+        }];
+        
+    }
+    
+    [self.operationQueue addOperation:blockOperation];
 }
 
 
